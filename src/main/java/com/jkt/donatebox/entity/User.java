@@ -14,6 +14,7 @@ public class User {
     private int phone;
     private String email;
     private String password;
+    @OneToOne
     private Address address;
     private Date dob;
 
