@@ -7,13 +7,13 @@ import javax.persistence.*;
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int addressId;
+    private Long addressId;
     private String city;
     private String state;
     private String country;
     private int pinCode;
 
-    public int getAddressId() {
+    public Long getAddressId() {
         return addressId;
     }
 

@@ -8,17 +8,18 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
+    private Long userId;
     private String firstName;
     private String lastName;
-    private int phone;
+    private Long phone;
     private String email;
     private String password;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "addressId")
     private Address address;
     private Date dob;
 
-    public User(final String firstName, final String lastName, final int phone, final String email,
+    public User(final String firstName, final String lastName, final Long phone, final String email,
                 final String password, final Address address, final Date dob) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -29,7 +30,7 @@ public class User {
         this.dob = dob;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -49,11 +50,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(final Long phone) {
         this.phone = phone;
     }
 
