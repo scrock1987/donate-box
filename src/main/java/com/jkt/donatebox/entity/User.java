@@ -19,6 +19,8 @@ public class User {
     private Address address;
     private Date dob;
 
+    public User() { }
+
     public User(final String firstName, final String lastName, final Long phone, final String email,
                 final String password, final Address address, final Date dob) {
         this.firstName = firstName;

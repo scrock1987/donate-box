@@ -13,6 +13,15 @@ public class Address {
     private String country;
     private int pinCode;
 
+    public Address() { }
+
+    public Address(final String city, final String state, final String country, final int pinCode) {
+        this.city = city;
+        this.state = state;
+        this.country = country;
+        this.pinCode = pinCode;
+    }
+
     public Long getAddressId() {
         return addressId;
     }
@@ -46,13 +55,6 @@ public class Address {
     }
 
     public void setPinCode(final int pinCode) {
-        this.pinCode = pinCode;
-    }
-
-    public Address(final String city, final String state, final String country, final int pinCode) {
-        this.city = city;
-        this.state = state;
-        this.country = country;
         this.pinCode = pinCode;
     }
 }

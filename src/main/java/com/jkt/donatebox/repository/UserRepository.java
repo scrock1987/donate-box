@@ -1,4 +1,4 @@
-package com.jkt.donatebox.com.jkt.donatebox.repository;
+package com.jkt.donatebox.repository;
 
 import com.jkt.donatebox.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
