@@ -1,5 +1,7 @@
 package com.jkt.donatebox.entity;
 
+import com.jkt.donatebox.enums.UserType;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,11 +20,12 @@ public class User {
     @JoinColumn(name = "addressId")
     private Address address;
     private Date dob;
+    private UserType userType;
 
     public User() { }
 
     public User(final String firstName, final String lastName, final Long phone, final String email,
-                final String password, final Address address, final Date dob) {
+                final String password, final Address address, final Date dob, final UserType userType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -30,6 +33,7 @@ public class User {
         this.password = password;
         this.address = address;
         this.dob = dob;
+        this.userType = userType;
     }
 
     public Long getUserId() {
@@ -90,6 +94,14 @@ public class User {
 
     public void setDob(final Date dob) {
         this.dob = dob;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(final UserType userType) {
+        this.userType = userType;
     }
 }
 

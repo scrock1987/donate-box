@@ -1,6 +1,6 @@
 package com.jkt.donatebox.enums;
 
-public enum DonationType {
+public enum Category {
     CLOTH,
     FOOD,
     TOYS,

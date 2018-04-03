@@ -1,25 +1,25 @@
 package com.jkt.donatebox.com.jkt.donatebox.rest;
 
-import com.jkt.donatebox.entity.User;
-import com.jkt.donatebox.rest.UserController;
+import com.jkt.donatebox.controller.LoginController;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest
 @RunWith(SpringRunner.class)
-public class UserControllerTest {
+@SpringBootTest
+public class LoginControllerTest {
 
     @Autowired
-    UserController userController;
+    private LoginController loginController;
 
     @Test
     public void getUsers() throws Exception {
-        final User userById = userController.getUserById();
-        Assert.assertNotNull(userById);
+        final ResponseEntity response = loginController.loginUser("saurabh.chawla@jktech.com", "password");
+        Assert.assertNotNull(response);
     }
 
 }
