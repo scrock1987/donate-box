@@ -23,9 +23,6 @@ public class DonationController {
 
     @GetMapping("/getDonationByUserId")
     public ResponseEntity getDonationByUserId(@RequestParam final Long userId) {
-        /*final User user = userService.findUserByUserId(userId);
-        Donation donation = new Donation(Category.FOOD, new Date(), new Date(), false,DonationStatus.AVAILABLE, user);
-        donationService.saveDonation(donation);*/
         final List<Donation> donationsByUser = donationService.getDonationsByUser(userId);
         return new ResponseEntity(donationsByUser, HttpStatus.OK);
     }
