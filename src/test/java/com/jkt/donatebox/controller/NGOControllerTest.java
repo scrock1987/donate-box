@@ -1,6 +1,6 @@
-package com.jkt.donatebox.com.jkt.donatebox.rest;
+package com.jkt.donatebox.controller;
 
-import com.jkt.donatebox.controller.LoginController;
+import com.jkt.donatebox.enums.NGOType;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,17 +9,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class LoginControllerTest {
+public class NGOControllerTest {
 
     @Autowired
-    private LoginController loginController;
+    NGOController ngoController;
 
     @Test
-    public void getUsers() throws Exception {
-        final ResponseEntity response = loginController.loginUser("saurabh.chawla@jktech.com", "password");
-        Assert.assertNotNull(response);
+    public void getNgoByCity() throws Exception {
+        final ResponseEntity responseEntity = ngoController.getNgoByCity("Delhi", NGOType.OLD_AGE_HOME);
+        Assert.assertNotNull(responseEntity);
     }
 
 }
