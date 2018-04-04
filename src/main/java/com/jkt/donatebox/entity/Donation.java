@@ -1,6 +1,7 @@
 package com.jkt.donatebox.entity;
 
 import com.jkt.donatebox.enums.Category;
+import com.jkt.donatebox.enums.DonationStatus;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,18 +16,20 @@ public class Donation {
     private Date donationBroadcastDate;
     private Date donationDate;
     private boolean isPrivate;
-    @OneToOne
-    @JoinColumn(name = "userId")
+    private DonationStatus donationStatus;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId",nullable = false)
     private User user;
 
     public Donation() { }
 
-    public Donation(Category donationType, Date donationBroadcastDate, Date donationDate, boolean isPrivate, User user) {
+    public Donation(Category donationType, Date donationBroadcastDate, Date donationDate, boolean isPrivate,DonationStatus donationStatus, User user) {
         this.donationType = donationType;
         this.donationBroadcastDate = donationBroadcastDate;
         this.donationDate = donationDate;
         this.isPrivate = isPrivate;
         this.user = user;
+        this.donationStatus = donationStatus;
     }
 
     public Category getDonationType() {
@@ -71,5 +74,13 @@ public class Donation {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public DonationStatus getDonationStatus() {
+        return donationStatus;
+    }
+
+    public void setDonationStatus(DonationStatus donationStatus) {
+        this.donationStatus = donationStatus;
     }
 }

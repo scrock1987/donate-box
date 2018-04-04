@@ -4,6 +4,8 @@ import com.jkt.donatebox.enums.UserType;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "User", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -21,6 +23,9 @@ public class User {
     private Address address;
     private Date dob;
     private UserType userType;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
+    private Set<Donation> donations = new HashSet<>();
 
     public User() { }
 
@@ -102,6 +107,14 @@ public class User {
 
     public void setUserType(final UserType userType) {
         this.userType = userType;
+    }
+
+    public Set<Donation> getDonations() {
+        return donations;
+    }
+
+    public void setDonations(Set<Donation> donations) {
+        this.donations = donations;
     }
 }
 

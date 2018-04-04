@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Integer> {
+public interface UserRepository extends JpaRepository<User,Long> {
     @Query("select u from User u where u.email = ?1")
-    User getUserByEmail(String email);
+    User getUserByEmail(final String email);
+    @Query("select u from User u where u.userId = ?1")
+    User getUserByUserId(final Long userId);
 }
