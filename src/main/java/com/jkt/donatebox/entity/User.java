@@ -25,6 +25,7 @@ public class User {
     private UserType userType;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
+    @Transient
     private Set<Donation> donations = new HashSet<>();
 
     public User() { }

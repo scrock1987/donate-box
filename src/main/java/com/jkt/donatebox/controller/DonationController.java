@@ -9,9 +9,7 @@ import com.jkt.donatebox.repository.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -30,5 +28,23 @@ public class DonationController {
         donationService.saveDonation(donation);*/
         final List<Donation> donationsByUser = donationService.getDonationsByUser(userId);
         return new ResponseEntity(donationsByUser, HttpStatus.OK);
+    }
+
+    @GetMapping("/isDonationStillAvailable")
+    public ResponseEntity isDonationStillAvailable(@RequestParam final Long donationId) {
+        final boolean donationStillAvailable = donationService.isDonationStillAvailable(donationId);
+        return new ResponseEntity(donationStillAvailable,HttpStatus.OK);
+    }
+
+    @GetMapping("/getAllDonations")
+    public ResponseEntity getAllDonations() {
+        final List<Donation> allDonationsAvailable = donationService.getAllDonationsAvailable();
+        return new ResponseEntity(allDonationsAvailable,HttpStatus.OK);
+    }
+
+    @PostMapping("/createDonation")
+    public ResponseEntity create(@RequestBody final Donation donation) {
+        final Donation saveDonation = donationService.saveDonation(donation);
+        return new ResponseEntity(saveDonation,HttpStatus.OK);
     }
 }

@@ -8,6 +8,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long addressId;
+    private String line;
     private String city;
     private String state;
     private String country;
@@ -15,7 +16,8 @@ public class Address {
 
     public Address() { }
 
-    public Address(final String city, final String state, final String country, final int pinCode) {
+    public Address(final String line, final String city, final String state, final String country, final int pinCode) {
+        this.line = line;
         this.city = city;
         this.state = state;
         this.country = country;
@@ -56,5 +58,13 @@ public class Address {
 
     public void setPinCode(final int pinCode) {
         this.pinCode = pinCode;
+    }
+
+    public String getLine() {
+        return line;
+    }
+
+    public void setLine(String line) {
+        this.line = line;
     }
 }
