@@ -84,4 +84,5 @@ public class Event {
     public void setEventType(Category eventType) {
         this.eventType = eventType;
     }
+
 }

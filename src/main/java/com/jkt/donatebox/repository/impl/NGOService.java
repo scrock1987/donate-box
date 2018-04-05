@@ -20,4 +20,8 @@ public class NGOService {
     public NGO saveNGO(final NGO ngo) {
         return ngoRepository.save(ngo);
     }
+
+    public NGO getNgoById(final Long ngoId) {
+        return ngoRepository.getNGOByNGOId(ngoId);
+    }
 }
