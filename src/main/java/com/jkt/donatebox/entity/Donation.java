@@ -20,6 +20,7 @@ public class Donation {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId",nullable = false)
     private User user;
+    private Long ngoUserId;
 
     public Donation() { }
 
@@ -82,5 +83,13 @@ public class Donation {
 
     public void setDonationStatus(DonationStatus donationStatus) {
         this.donationStatus = donationStatus;
+    }
+
+    public Long getNgoUser() {
+        return ngoUserId;
+    }
+
+    public void setNgoUser(Long ngoUser) {
+        this.ngoUserId = ngoUser;
     }
 }

@@ -28,6 +28,7 @@ CREATE TABLE `address` (
   `country` varchar(255) DEFAULT NULL,
   `pin_code` int(11) NOT NULL,
   `state` varchar(255) DEFAULT NULL,
+  `line` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`address_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +39,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (2,'delhi','INDIA',0,'delhi'),(4,'delhi','INDIA',0,'delhi'),(6,'Delhi','India',110035,'Delhi'),(8,'delhi','India',110035,'Delhi');
+INSERT INTO `address` VALUES (2,'delhi','INDIA',0,'delhi',NULL),(4,'delhi','INDIA',0,'delhi',NULL),(6,'Delhi','India',110035,'Delhi',NULL),(8,'delhi','India',110035,'Delhi',NULL),(13,'Delhi','India',110023,'Delhi','201');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,6 +58,7 @@ CREATE TABLE `donation` (
   `is_private` bit(1) NOT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `donation_status` int(11) DEFAULT NULL,
+  `ngo_user_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`donation_id`),
   KEY `FK2rx4oikd7rs8ddja8k9xc25my` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -68,6 +70,7 @@ CREATE TABLE `donation` (
 
 LOCK TABLES `donation` WRITE;
 /*!40000 ALTER TABLE `donation` DISABLE KEYS */;
+INSERT INTO `donation` VALUES (9,'2018-04-04 15:29:27','2018-04-04 15:29:27',1,'\0',1,0,NULL),(10,'2018-04-04 15:29:27','2018-04-04 15:29:27',3,'\0',1,0,NULL),(11,'2018-04-04 15:29:27','2018-04-04 15:29:27',3,'\0',1,0,NULL),(14,'2018-04-04 05:30:00','2018-04-04 05:30:00',0,'',3,0,NULL);
 /*!40000 ALTER TABLE `donation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,6 +101,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
+INSERT INTO `event` VALUES (12,1,'2018-04-04 18:16:27','8:00','2018-04-04 18:16:27',13,5);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +123,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
-INSERT INTO `hibernate_sequence` VALUES (9),(9);
+INSERT INTO `hibernate_sequence` VALUES (15),(15);
 /*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +188,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,NULL,'saurabh.chawla@jktech.com',NULL,NULL,'password',1234567890,0,2);
+INSERT INTO `user` VALUES (1,NULL,'saurabh.chawla@jktech.com',NULL,NULL,'password',1234567890,0,2),(11,NULL,'a@b.com',NULL,NULL,NULL,3232323232,1,4);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -197,4 +201,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-04 15:10:18
+-- Dump completed on 2018-04-06 17:20:51

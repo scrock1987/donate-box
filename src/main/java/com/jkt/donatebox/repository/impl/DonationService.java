@@ -17,6 +17,10 @@ public class DonationService {
         return donationRepository.getDonationsByUser(userId);
     }
 
+    public List<Donation> getDonationsByNGOUserId(final Long ngoUserId) {
+        return donationRepository.getDonationsByNGOUserId(ngoUserId);
+    }
+
     public boolean isDonationStillAvailable(final Long donationId) {
         final Donation donationById = donationRepository.getDonationById(donationId);
         return DonationStatus.AVAILABLE.equals(donationById.getDonationStatus());

@@ -13,9 +13,13 @@ public interface DonationRepository extends JpaRepository<Donation,Long> {
     @Query("Select d from Donation d where d.user.userId=?1")
     List<Donation> getDonationsByUser(final Long userId);
 
+    @Query("Select d from Donation d where d.ngoUserId=?1")
+    List<Donation> getDonationsByNGOUserId(final Long ngoUserId);
+
     @Query("Select d from Donation d where d.donationId=?1")
     Donation getDonationById(final Long donationId);
 
     @Query("Select d from Donation d where d.donationStatus=?1")
     List<Donation> getDonationsByDonationStatus(final DonationStatus donationStatus);
+
 }
